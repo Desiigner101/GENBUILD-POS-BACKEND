@@ -34,6 +34,13 @@ public class CategoryServiceImpl implements CategoryService {
 
     }
 
+    @Override
+    public void delete(String categoryId) {
+        CategoryEntity existingCategory = categoryRepository.findByCategoryId(categoryId)
+                .orElseThrow(() -> new RuntimeException("Category not found: " + categoryId));
+        categoryRepository.delete(existingCategory);
+    }
+
     private CategoryResponse convertToResponse(CategoryEntity newCategory) {
         return CategoryResponse.builder()
                 .categoryId(newCategory.getCategoryId())
