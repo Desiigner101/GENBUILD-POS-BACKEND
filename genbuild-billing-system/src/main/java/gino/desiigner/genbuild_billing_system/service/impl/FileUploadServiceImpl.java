@@ -38,6 +38,7 @@ public class FileUploadServiceImpl implements FileUploadService {
                     .contentType(file.getContentType())
                     .build();
 
+
             PutObjectResponse response = s3Client.putObject(putObjectRequest, RequestBody.fromBytes(file.getBytes()));
 
             if(response.sdkHttpResponse().isSuccessful()){
@@ -55,9 +56,9 @@ public class FileUploadServiceImpl implements FileUploadService {
     public boolean deleteFile(String imgUrl) {
        String filename =  imgUrl.substring(imgUrl.lastIndexOf("/")+1);
         DeleteObjectRequest deleteObjectRequest = DeleteObjectRequest.builder()
-                .bucket(bucketName)
-                .key(filename)
-                .build();
+                    .bucket(bucketName)
+                    .key(filename)
+                    .build();
 
         s3Client.deleteObject(deleteObjectRequest);
         return true;
