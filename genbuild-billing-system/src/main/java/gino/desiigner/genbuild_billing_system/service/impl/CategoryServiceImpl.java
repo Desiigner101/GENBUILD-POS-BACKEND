@@ -4,6 +4,7 @@ import gino.desiigner.genbuild_billing_system.entity.CategoryEntity;
 import gino.desiigner.genbuild_billing_system.io.CategoryRequest;
 import gino.desiigner.genbuild_billing_system.io.CategoryResponse;
 import gino.desiigner.genbuild_billing_system.repository.CategoryRepository;
+import gino.desiigner.genbuild_billing_system.repository.ItemRepository;
 import gino.desiigner.genbuild_billing_system.service.CategoryService;
 import gino.desiigner.genbuild_billing_system.service.FileUploadService;
 import lombok.RequiredArgsConstructor;
@@ -19,6 +20,7 @@ import java.util.stream.Collectors;
 public class CategoryServiceImpl implements CategoryService {
     private final CategoryRepository categoryRepository;
     private final FileUploadService fileUploadService;
+    private final ItemRepository itemRepository;
 
     @Override
     public CategoryResponse add(CategoryRequest request, MultipartFile file){
@@ -47,6 +49,7 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     private CategoryResponse convertToResponse(CategoryEntity newCategory) {
+        Integer itemsCount = itemRepository.countByCategoryId(newCategory.getId());
         return CategoryResponse.builder()
                 .categoryId(newCategory.getCategoryId())
                 .name(newCategory.getName())
@@ -55,6 +58,7 @@ public class CategoryServiceImpl implements CategoryService {
                 .imgUrl(newCategory.getImgUrl())
                 .createdAt(newCategory.getCreatedAt())
                 .updatedAt(newCategory.getUpdatedAt())
+                .items(itemsCount)
                 .build();
     }
 
