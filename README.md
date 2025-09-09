@@ -3,27 +3,30 @@
 This is the backend of my GENBUILD-POS project — a student-built Retail Billing Software.
 It is powered by Spring Boot and serves as the API & server-side logic for handling data, requests, and business rules of the system.
 
-# Tech Stack
+# Tech stack
 
-Backend Framework: Spring Boot 🌱
+- Backend framework: Spring Boot
+- Language: Java
+- Database: MySQL
+- API style: RESTful
+- Authentication: JWT (Bearer tokens)
+- File storage: (example) AWS S3 for item images
 
-Language: Java ☕
+# Features
 
-Database: (to be added as the project grows)
-
-API: RESTful endpoints for communication with the frontend
-
+- Manage products / items (create with image upload, read, delete)
+- Manage categories
+- Billing / transaction handling (core logic in services)
+- Secure endpoints (ROLE_USER, ROLE_ADMIN)
+- File upload handling for product images (multipart/form-data)
+  
 # Purpose
-
 The backend is responsible for:
 
-Managing billing operations
-
-Handling product & inventory data
-
-Processing customer transactions
-
-Serving secure endpoints to the frontend
+- Managing billing operations
+- Handling product & inventory data
+- Processing customer transactions
+- Serving secure endpoints to the frontend
 
 # Notes
 
