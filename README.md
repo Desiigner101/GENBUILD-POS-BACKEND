@@ -10,7 +10,7 @@ It is powered by Spring Boot and serves as the API & server-side logic for handl
 - Database: MySQL
 - API style: RESTful
 - Authentication: JWT (Bearer tokens)
-- File storage: (example) AWS S3 for item images
+- File storage: AWS S3 for item images
 
 # Features
 
