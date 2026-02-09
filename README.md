@@ -4,7 +4,7 @@ This is the backend of my GENBUILD-POS project — a student-built Retail Billin
 It is powered by Spring Boot and serves as the API & server-side logic for handling data, requests, and business rules of the system.
 
 # Tech stack
-
+tttfcccc
 - Backend framework: Spring Boot
 - Language: Java
 - Database: MySQL
